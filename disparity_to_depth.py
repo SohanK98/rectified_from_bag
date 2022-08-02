@@ -56,7 +56,7 @@ def main(indir, outdir, imagedir, baseline, focal, cx, cy, z_min, z_max):
 
         # Get the depth filtered points
         mask = numpy.logical_and(z >= z_min, z <= z_max)
-        points = numpy.vstack((z[mask], y[mask], x[mask])).T
+        points = numpy.vstack((x[mask], y[mask], z[mask])).T
 
         cloud = open3d.geometry.PointCloud()
         cloud.points = open3d.utility.Vector3dVector(points)
